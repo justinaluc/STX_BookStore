@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>STX_BookStore</title>
+</head>
+<body>
+    <h1>List of books in STX_BookStore database:</h1>
+<table>
+    <tr>
+        <th> Title </th>
+        <th> Authors </th>
+        <th> Published year </th>
+        <th> Acquired </th>
+    </tr>
+{% for book in object_list %}
+    <tr>
+        <td> {{ book.title }} </td>
+        <td>
+            {% for author in book.authors.all %}
+                {{ author.name }} <br>
+            {% endfor %}
+        </td>
+        <td style="text-align:center">
+            {% if not book.published_year %}
+                -
+            {% else %}
+                {{ book.published_year }}
+            {% endif %}
+        </td>
+        <td style="text-align:center">
+        {% if book.acquired %}
+          <span style="color:green;">&#9745;</span>
+        {% else %}
+          <span style="color:red;">&#9746;</span>
+        {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+</body>
+</html>
