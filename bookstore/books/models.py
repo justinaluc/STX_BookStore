@@ -13,8 +13,8 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    external_id = models.CharField(max_length=60)
+    external_id = models.CharField(null=True, max_length=60)
     title = models.CharField(max_length=255)
     authors = models.ManyToManyField(Author, related_name="book_authors")
-    published_year = models.PositiveSmallIntegerField()
+    published_year = models.PositiveSmallIntegerField(default=None)
     acquired = models.BooleanField(default=False)
