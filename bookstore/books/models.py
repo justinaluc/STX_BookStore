@@ -2,9 +2,6 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-# Create your models here.
-
-
 class Author(models.Model):
     name = models.CharField(max_length=255)
 
@@ -13,8 +10,12 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-    external_id = models.CharField(null=True, max_length=60)
+    external_id = models.CharField(blank=True, null=True, max_length=60)
     title = models.CharField(max_length=255)
     authors = models.ManyToManyField(Author, related_name="book_authors")
-    published_year = models.PositiveSmallIntegerField(default=None)
+    published_year = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
     acquired = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
+
