@@ -20,7 +20,7 @@ from books.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('books/', include('books.urls')),
-    path('api/', include('api.urls')),
+    path('bookstore/', include('books.urls')),
+    path('', include('api.urls')),
     path('', home_view, name='home'),
 ]
