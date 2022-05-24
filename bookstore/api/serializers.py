@@ -4,9 +4,23 @@ from rest_framework import serializers
 from books.models import Author, Book
 
 
+class AuthorListSerializer(serializers.RelatedField):
+
+    def to_representation(self, value):
+        return f'{value.name}'
+
+
+class BookListSerializer(serializers.ModelSerializer):
+    authors = AuthorListSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Book
+        fields = ['id', 'external_id', 'title', 'authors', 'acquired', 'published_year']
+
+
 class AuthorSerializer(serializers.ModelSerializer):
     """
-    when create or update Book instance, do not require Author id if exists
+    do not require author id if exists when update Book instance with nested author serializer
     """
     id = serializers.IntegerField(required=False)
 
@@ -15,19 +29,6 @@ class AuthorSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
         read_only_fields = ('id',)
         write_only_fields = ('name',)
-
-
-class AuthorListingSerializer(serializers.RelatedField):
-    def to_representation(self, value):
-        return f'{value.name}'
-
-
-class BookListSerializer(serializers.ModelSerializer):
-    authors = AuthorListingSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Book
-        fields = ['id', 'external_id', 'title', 'authors', 'acquired', 'published_year']
 
 
 class BookSerializer(serializers.ModelSerializer):
