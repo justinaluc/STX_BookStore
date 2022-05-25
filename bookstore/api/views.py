@@ -1,11 +1,5 @@
-from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-
-from django_filters.rest_framework import DjangoFilterBackend
-
-from books.models import Book
-from .serializers import BookSerializer, BookListSerializer
 
 
 @api_view(['GET'])
@@ -19,29 +13,3 @@ def get_api_spec(request):
             }
         }
     return Response(spec)
-
-
-class BookList(generics.ListAPIView):
-    """
-    listing books with serializer which shows only related field representations (list of authors names)
-    """
-    queryset = Book.objects.all()
-    serializer_class = BookListSerializer
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['title', 'authors', 'published_year', 'acquired']
-
-
-class BookCreate(generics.CreateAPIView):
-    """
-    create new instance of the book model
-    """
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-
-
-class BookDetail(generics.RetrieveUpdateDestroyAPIView):
-    """
-    enable to show single instance of the book model, update it or delete it
-    """
-    queryset = Book.objects.all()
-    serializer_class = BookListSerializer
