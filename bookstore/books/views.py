@@ -5,7 +5,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework import generics
 
-from .serializers import BookSerializer, BookListSerializer
+from .serializers import BookSerializer
 from .models import Book
 
 
@@ -26,8 +26,9 @@ class BookList(generics.ListAPIView):
     listing books with serializer which shows only related field representations (list of authors names)
     """
     queryset = Book.objects.all()
-    serializer_class = BookListSerializer
+    serializer_class = BookSerializer
     filter_backends = [DjangoFilterBackend]
+    #to filter dates range use django-filter package: RangeFilter with RangeWidget
     filterset_fields = ['title', 'authors', 'published_year', 'acquired']
 
 
@@ -44,4 +45,4 @@ class BookDetail(generics.RetrieveUpdateDestroyAPIView):
     enable to show single instance of the book model, update it or delete it
     """
     queryset = Book.objects.all()
-    serializer_class = BookListSerializer
+    serializer_class = BookSerializer
