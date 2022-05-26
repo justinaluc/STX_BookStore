@@ -12,6 +12,7 @@
         <th> Authors </th>
         <th> Published year </th>
         <th> Acquired </th>
+        <th> Thumbnail </th>
     </tr>
 {% for book in object_list %}
     <tr>
@@ -35,6 +36,12 @@
           <span style="color:red;">&#9746;</span>
         {% endif %}
         </td>
+        <td>
+            {% if book.thumbnail %}
+          <span style="color:green;">&#9745;</span>
+        {% else %}
+          <span style="color:red;">&#9746;</span>
+        {% endif %}</td>
     </tr>
 {% endfor %}
 </table>

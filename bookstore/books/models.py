@@ -14,6 +14,7 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author, related_name="book_authors")
     published_year = models.PositiveSmallIntegerField(blank=True, null=True, default=0)
     acquired = models.BooleanField(default=False)
+    thumbnail = models.URLField(null=True, blank=True)
 
     def __str__(self):
         return self.title

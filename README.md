@@ -12,16 +12,14 @@ using Google API to import books to the database
 * Google Books API
 * database: PostgreSQL 
 
-## Technical requirements
+## Technical requirements and Installation
+Launch on local server 
 ```
 pip install -r requirements.txt
 ```
+or use application deployed using a publicly available server [link](###)
 
-## Launch
-Deployment of the application using a publicly available server
-[link](###)
-
-## Detailed functionalities
+## Usage
 1. get info about API: 
 ```
 [GET]      http://.../api_spec
@@ -51,11 +49,13 @@ Deployment of the application using a publicly available server
 ```
 [POST]     http://.../import
 ```
+8. check in html database content
+```
+[GET]      http://.../bookstore
+```
 *** 
 
-## Created by
-Justyna Łuczak _@justinaluc_
+### Created by
+Justyna Łuczak _@justinaluc_. Find me on [github](https://github.com/justinaluc)
+or [linkedin](https://www.linkedin.com/in/justyna-%C5%82uczak-9535ab8b/).
 
-find me on [github](https://github.com/justinaluc)
-or [linkedin](https://www.linkedin.com/in/justyna-%C5%82uczak-9535ab8b/)
-*** 
