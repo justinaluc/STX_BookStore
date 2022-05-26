@@ -86,11 +86,12 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 
 DATABASES = {
     'default': {
-        'HOST': '127.0.0.1',
-        'NAME': 'stx_bookstore',
+        'HOST': 'ec2-3-217-113-25.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'NAME': 'd3q9ltrigsqii',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'czeslaw',
-        'PASSWORD': 'stxczeslaw',
+        'USER': 'jdktyonjrsipgj',
+        'PASSWORD': 'c5cfe39a17ca05aa38c3d4543e896c3cdee2f2922e7ccfffb87755a6a7bc36b1',
     }
 }
 
