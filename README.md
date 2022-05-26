@@ -17,7 +17,7 @@ Launch on local server
 ```
 pip install -r requirements.txt
 ```
-or use application deployed using a publicly available server [link](###)
+or use application deployed using a publicly available server [link](https://vast-springs-92048.herokuapp.com/)
 
 ## Usage
 1. get info about API: 
