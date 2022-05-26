@@ -30,7 +30,7 @@ GOOGLE_API_KEY = config('GOOGLE_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vast-springs-92048.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['vast-springs-92048.herokuapp.com', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
